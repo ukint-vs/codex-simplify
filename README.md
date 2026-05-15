@@ -2,7 +2,7 @@
 
 Codex-first code simplification workflow with OpenCode and Pi adapters.
 
-`$simplify` scopes recently changed code and docs, launches three read-only analysis subagents for reuse, quality, and efficiency, then applies one minimal behavior-preserving patch.
+`$simplify` scopes recently changed code and docs, records a quick bloat baseline, launches three read-only analysis subagents for reuse, quality, and efficiency, then applies one minimal behavior-preserving patch.
 
 ## Structure
 
@@ -28,6 +28,7 @@ Then enable `Codex Simplify` from Codex plugin management and ask:
 
 ```text
 Use $simplify on my recent changes.
+Use $simplify to reduce bloat in my recent changes.
 ```
 
 Optional custom prompt shortcut:
@@ -81,7 +82,9 @@ Then invoke the skill:
 ## Behavior
 
 - Preserves external behavior and public interfaces.
+- Prioritizes deletion, deduplication, and consolidation before local polish.
 - Removes or refines stale, redundant, or local-plan comments and docs.
+- Reports whether the patch reduced, held, or increased net size and lists remaining bloat targets.
 - Avoids generated files, vendored code, lockfiles, snapshots, and migrations unless requested.
 - Uses three analysis goals: reuse, quality, and efficiency.
 - Applies only a small final patch after merging and filtering subagent findings.
