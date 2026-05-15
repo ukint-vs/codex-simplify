@@ -1,0 +1,39 @@
+{
+  "name": "codex-simplify",
+  "version": "0.1.0",
+  "description": "Codex-first code simplification workflow with OpenCode and Pi adapters.",
+  "license": "Apache-2.0",
+  "author": "ukintvs",
+  "homepage": "https://github.com/ukint-vs/codex-simplify",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukint-vs/codex-simplify.git"
+  },
+  "keywords": [
+    "pi-package",
+    "codex",
+    "codex-plugin",
+    "opencode",
+    "agent-skills",
+    "code-simplifier",
+    "refactoring",
+    "code-quality"
+  ],
+  "files": [
+    ".agents/",
+    ".opencode/",
+    "plugins/",
+    "prompts/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "skills": [
+      "./plugins/code-simplifier/skills"
+    ],
+    "prompts": [
+      "./prompts"
+    ]
+  }
+}
