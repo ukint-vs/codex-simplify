@@ -2,7 +2,7 @@
 
 Codex-first code simplification workflow with OpenCode and Pi adapters.
 
-`$simplify` scopes recently changed code, launches three read-only analysis subagents for reuse, quality, and efficiency, then applies one minimal behavior-preserving patch.
+`$simplify` scopes recently changed code and docs, launches three read-only analysis subagents for reuse, quality, and efficiency, then applies one minimal behavior-preserving patch.
 
 ## Structure
 
@@ -81,6 +81,7 @@ Then invoke the skill:
 ## Behavior
 
 - Preserves external behavior and public interfaces.
+- Removes or refines stale, redundant, or local-plan comments and docs.
 - Avoids generated files, vendored code, lockfiles, snapshots, and migrations unless requested.
 - Uses three analysis goals: reuse, quality, and efficiency.
 - Applies only a small final patch after merging and filtering subagent findings.

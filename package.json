@@ -1,7 +1,7 @@
 {
   "name": "codex-simplify",
-  "version": "0.1.0",
-  "description": "Codex-first code simplification workflow with OpenCode and Pi adapters.",
+  "version": "0.1.1",
+  "description": "Codex-first code and docs simplification workflow with OpenCode and Pi adapters.",
   "license": "Apache-2.0",
   "author": "ukintvs",
   "homepage": "https://github.com/ukint-vs/codex-simplify",

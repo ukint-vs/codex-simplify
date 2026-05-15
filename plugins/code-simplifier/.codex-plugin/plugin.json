@@ -1,7 +1,7 @@
 {
   "name": "code-simplifier",
-  "version": "0.1.0",
-  "description": "Simplify recently changed code with parallel Codex subagents while preserving behavior.",
+  "version": "0.1.1",
+  "description": "Simplify recently changed code, comments, and docs with parallel Codex subagents while preserving behavior.",
   "author": {
     "name": "ukintvs",
     "url": "https://github.com/ukint-vs"
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Codex Simplify",
     "shortDescription": "Simplify changed code without changing behavior",
-    "longDescription": "A Codex skill that scopes recently changed code, runs three parallel analysis subagents for reuse, quality, and efficiency opportunities, then applies a small behavior-preserving simplification patch.",
+    "longDescription": "A Codex skill that scopes recently changed code and docs, runs three parallel analysis subagents for reuse, quality, and efficiency opportunities, then applies a small behavior-preserving simplification patch.",
     "developerName": "ukintvs",
     "category": "Coding",
     "capabilities": [
