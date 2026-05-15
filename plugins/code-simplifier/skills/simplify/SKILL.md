@@ -1,13 +1,13 @@
 ---
 name: simplify
-description: Simplify and refine recently changed code, comments, and docs while preserving exact behavior by coordinating three parallel Codex subagents for reuse, quality, and efficiency analysis, then applying a minimal safe patch. Use when asked to simplify code, reduce bloat, clean up code, refactor for clarity, reduce duplication or nesting, improve maintainability, remove stale comments, improve documentation, or run a simplify pass after implementation.
+description: Simplify and refine recently changed code, comments, and docs while preserving exact behavior by coordinating three parallel Codex subagents for reuse, quality, and efficiency analysis, then applying a minimal safe patch. Use when asked to simplify code, tighten a large diff, clean up after a long AI coding session, refactor for clarity, reduce duplication or nesting, improve maintainability, remove stale comments, improve documentation, or run a simplify pass after implementation.
 ---
 
 # Simplify
 
 ## Overview
 
-Run a controlled simplification pass over the smallest relevant code and documentation scope. Prefer deletion, deduplication, and consolidation over polish. Preserve external behavior, public interfaces, tests, schemas, config, and generated artifacts unless the user explicitly asks otherwise.
+Run a controlled simplification pass over the smallest relevant code and documentation scope. Prefer deleting unnecessary code, deduplication, and consolidation over polish. Preserve external behavior, public interfaces, tests, schemas, config, and generated artifacts unless the user explicitly asks otherwise.
 
 ## Workflow
 
@@ -17,10 +17,10 @@ Run a controlled simplification pass over the smallest relevant code and documen
    - If the worktree is clean and a previous commit exists, inspect the last commit with `git diff --name-only HEAD~1..HEAD`.
    - Include touched docs, comments, and docstrings when they are part of the selected scope.
    - Exclude generated files, vendored code, lockfiles, snapshots, migrations, and large data files unless explicitly requested.
-   - Record a quick bloat baseline: changed-file count, rough diffstat, largest touched files, obvious unused files, and duplicated UI/data-flow structures.
+   - Record a quick diff baseline: changed-file count, rough diffstat, largest touched files, obvious unused files, and duplicated UI/data-flow structures.
 2. Spawn three parallel read-only analysis subagents when the environment supports subagents.
 3. Merge the reports, deduplicate suggestions, and reject anything that could change behavior or public API.
-4. Rank deletion/consolidation findings before local polish. If the user asked to reduce bloat, prefer one safe bloat-reduction patch over many small readability edits.
+4. Rank deletion/consolidation findings before local polish. If the user asked to tighten a large diff or clean up after implementation, prefer one safe diff-tightening patch over many small readability edits.
 5. Apply one small patch yourself or with one bounded worker subagent. Keep ownership limited to the selected files.
 6. Run focused validation. Prefer existing project checks and the narrowest test set that covers the touched behavior.
 
@@ -85,7 +85,7 @@ Return: file, finding, safest suggested change, risk level.
 - Implement only low-risk findings with clear behavior preservation.
 - Prefer deletions, local rewrites, helper reuse, duplicate structure consolidation, early returns, and naming improvements.
 - Do not add tests or scaffolding just to justify cleanup. Add or update tests only when needed to protect the behavior being simplified.
-- If the best safe patch is net-additive, say why it is still a simplification; otherwise skip it and report the bloat targets that need a larger follow-up.
+- If the best safe patch is net-additive, say why it is still a simplification; otherwise skip it and report the cleanup targets that need a larger follow-up.
 - Remove or refine comments, docstrings, and touched docs that are stale, redundant, misleading, or tied to local implementation plans rather than durable behavior.
 - Keep comments and docs that explain non-obvious intent, invariants, constraints, compatibility, security, performance tradeoffs, or user-facing behavior.
 - Keep public exports, function signatures, serialized shapes, CLI flags, environment variables, database migrations, and test expectations unchanged.
@@ -103,9 +103,9 @@ Run focused checks after editing. If a repo exposes obvious commands, prefer tar
 Final response must include:
 
 - files changed
-- bloat baseline and whether the patch reduced, held, or increased net size
+- diff baseline and whether the patch reduced, held, or increased net changed lines
 - simplification themes applied
 - comment/doc cleanup applied, if any
 - checks run and results
 - suggestions intentionally skipped because they were risky or out of scope
-- remaining bloat targets, if the safe patch could not address them
+- remaining cleanup targets, if the safe patch could not address them

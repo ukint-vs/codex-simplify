@@ -1,10 +1,15 @@
 # Changelog
 
+## v0.1.3
+
+- Reframes the workflow around tightening large post-implementation diffs.
+- Updates final reporting language to focus on net changed lines and remaining cleanup targets.
+
 ## v0.1.2
 
-- Adds a required bloat baseline before simplification.
+- Adds a required diff baseline before simplification.
 - Prioritizes deletion, deduplication, and consolidation before local polish.
-- Requires final output to report net-size impact and remaining bloat targets.
+- Requires final output to report net changed lines and remaining cleanup targets.
 
 ## v0.1.1
 

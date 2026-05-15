@@ -1,7 +1,7 @@
 {
   "name": "code-simplifier",
-  "version": "0.1.2",
-  "description": "Reduce bloat in recently changed code, comments, and docs with parallel Codex subagents while preserving behavior.",
+  "version": "0.1.3",
+  "description": "Tighten recently changed code, comments, and docs with parallel Codex subagents while preserving behavior.",
   "author": {
     "name": "ukintvs",
     "url": "https://github.com/ukint-vs"
@@ -20,8 +20,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Codex Simplify",
-    "shortDescription": "Reduce bloat in changed code without changing behavior",
-    "longDescription": "A Codex skill that scopes recently changed code and docs, records a quick bloat baseline, runs three parallel analysis subagents for reuse, quality, and efficiency opportunities, then applies a small behavior-preserving simplification patch.",
+    "shortDescription": "Tighten changed code without changing behavior",
+    "longDescription": "A Codex skill that scopes recently changed code and docs, records a quick diff baseline, runs three parallel analysis subagents for reuse, quality, and efficiency opportunities, then applies a small behavior-preserving simplification patch.",
     "developerName": "ukintvs",
     "category": "Coding",
     "capabilities": [
@@ -31,7 +31,7 @@
     "websiteURL": "https://github.com/ukint-vs/codex-simplify",
     "defaultPrompt": [
       "Use $simplify on my recent changes",
-      "Use $simplify to reduce bloat in my recent changes",
+      "Use $simplify to tighten my recent implementation diff",
       "Simplify this file without behavior changes",
       "Run the three-agent simplifier pass"
     ],
