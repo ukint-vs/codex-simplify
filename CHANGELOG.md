@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.0
+
+- Replaces generic subagent prompts with concrete anti-pattern checklists per pass (reuse, quality, efficiency).
+- Passes a single unified diff payload to each subagent so analysis is grounded in the actual changes.
+- Slims the OpenCode command and Codex prompt files to thin shims that delegate to the canonical skill.
+
 ## v0.1.3
 
 - Reframes the workflow around tightening large post-implementation diffs.
