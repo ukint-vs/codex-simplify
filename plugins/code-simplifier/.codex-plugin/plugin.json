@@ -32,7 +32,6 @@
     "defaultPrompt": [
       "Use $simplify on my recent changes",
       "Use $simplify to tighten my recent implementation diff",
-      "Simplify this file without behavior changes",
       "Run the three-agent simplifier pass"
     ],
     "brandColor": "#2563EB",
