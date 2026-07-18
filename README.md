@@ -2,7 +2,7 @@
 
 Codex-first code simplification workflow with OpenCode and Pi adapters.
 
-`$simplify` scopes recently changed code and docs, records a quick diff baseline, launches three read-only analysis subagents for reuse, quality, and efficiency, then applies one minimal behavior-preserving patch.
+`$simplify` scopes recently changed code and docs, records a quick diff baseline, launches four read-only analysis subagents for reuse, structure, quality, and efficiency, then applies one behavior-preserving patch that reduces net changed lines.
 
 ## Structure
 
@@ -81,13 +81,14 @@ Then invoke the skill:
 
 ## Behavior
 
-- Preserves external behavior and public interfaces.
-- Prioritizes deleting unnecessary code, deduplication, and consolidation before local polish.
+- Preserves external behavior and public interfaces; internal signatures may change when all callers are updated in the same patch.
+- Targets a net-negative patch: deletions, deduplication, and consolidation first, and skips net-additive suggestions instead of applying them.
+- Hunts structural spaghetti: wrong-depth fixes, special cases on shared paths, control-flag parameters, pass-through wrappers, scattered dispatch.
+- Agents read the full files and grep the repository — deletion and reuse findings must be verified against real references, not just the diff.
 - Removes or refines stale, redundant, or local-plan comments and docs.
-- Reports whether the patch reduced, held, or increased net changed lines and lists remaining cleanup targets.
+- Reports the patch's net line delta and lists remaining cleanup targets.
 - Avoids generated files, vendored code, lockfiles, snapshots, and migrations unless requested.
-- Uses three analysis goals: reuse, quality, and efficiency.
-- Applies only a small final patch after merging and filtering subagent findings.
+- Uses four analysis goals: reuse, structure, quality, and efficiency.
 
 ## Development
 
