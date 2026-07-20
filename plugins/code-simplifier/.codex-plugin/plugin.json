@@ -1,7 +1,7 @@
 {
   "name": "code-simplifier",
-  "version": "0.2.0",
-  "description": "Tighten recently changed code, comments, and docs with parallel Codex subagents while preserving behavior.",
+  "version": "0.2.1",
+  "description": "Tighten recently changed code, comments, and docs with four focused analysis passes while preserving behavior.",
   "author": {
     "name": "ukintvs",
     "url": "https://github.com/ukint-vs"
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Codex Simplify",
     "shortDescription": "Tighten changed code without changing behavior",
-    "longDescription": "A Codex skill that scopes recently changed code, captures a unified diff, runs four parallel read-only subagents (reuse, structure, quality, efficiency) with concrete anti-pattern checklists, then applies one behavior-preserving patch that reduces net changed lines.",
+    "longDescription": "A Codex skill that scopes recently changed code, captures a unified diff, runs four focused analysis passes (reuse, structure, quality, efficiency) with capability-aware delegation, then applies one behavior-preserving patch that reduces net changed lines.",
     "developerName": "ukintvs",
     "category": "Coding",
     "capabilities": [
@@ -32,7 +32,7 @@
     "defaultPrompt": [
       "Use $simplify on my recent changes",
       "Use $simplify to tighten my recent implementation diff",
-      "Run the four-agent simplifier pass"
+      "Run the four-pass simplifier"
     ],
     "brandColor": "#2563EB",
     "screenshots": []

@@ -1,6 +1,6 @@
 {
   "name": "codex-simplify",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Codex-first post-implementation diff cleanup workflow for changed code and docs with OpenCode and Pi adapters.",
   "license": "Apache-2.0",
   "author": "ukintvs",

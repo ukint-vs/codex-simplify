@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.1
+
+- Rewrites the canonical skill as a lean, model-neutral prompt while preserving the four analysis passes and net-negative patch contract.
+- Makes delegation capability-aware, with local or staged fallback when four parallel agents are unavailable.
+- Defines scope, autonomy, prompt-injection boundaries, and reporting requirements once instead of repeating them across the workflow.
+
 ## v0.2.0
 
 - Replaces generic subagent prompts with concrete anti-pattern checklists per pass (reuse, quality, efficiency).
